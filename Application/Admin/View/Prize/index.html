@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/style.css" />
+    <script type="text/javascript" src="__ROOT__/Js/jquery.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/bootstrap.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/ckform.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/common.js"></script>
+</head>
+<body>
+<form class="form-inline definewidth m20" action="index.html" method="get">
+    <button type="button" class="btn btn-success" id="addnew">新增奖品</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>奖品名称</th>
+        <th>剩余数量</th>
+        <th>新增时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+        <foreach name="prize_list" item="vo" >
+            <tr>
+                <td>{$vo.id}</td>
+                <td>{$vo.name}</td>
+                <td>{$vo.num}</td>
+                <td>{:date('Y-m-d H:i:s',$vo['add_time'])}</td>
+                <td>
+                    <a href="edit.html?prize_id={$vo.id}">编辑</a>
+                    <a href="del.html?prize_id={$vo.id}">删除</a>
+                </td>
+            </tr>
+        </foreach>
+</table>
+</body>
+</html>
+<script>
+    $(function () {
+		$('#addnew').click(function(){
+				window.location.href="add.html";
+		 });
+
+
+    });
+
+	function del(id)
+	{
+		if(confirm("确定要删除吗？"))
+		{
+
+			var url = "index.html";
+
+			window.location.href=url;
+
+		}
+
+
+
+
+	}
+</script>

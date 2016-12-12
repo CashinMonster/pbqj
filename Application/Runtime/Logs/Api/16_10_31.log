@@ -1,0 +1,132 @@
+[ 2016-10-31T16:55:43+08:00 ] ::1 /May_pbqj/Public/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.071255s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000608s ]
+
+[ 2016-10-31T16:55:43+08:00 ] ::1 /May_pbqj/Public/index.php/Api/WeiXin/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000434s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000442s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000535s ]
+ERR: 1046:Aucune base n'a été sélectionnée
+ [ SQL语句 ] : SHOW COLUMNS FROM `pbqj_user_info`
+ERR: 1046:Aucune base n'a été sélectionnée
+ [ SQL语句 ] : SHOW COLUMNS FROM `pbqj_user_info`
+
+[ 2016-10-31T17:06:47+08:00 ] ::1 /May_pbqj/Public/index.php/Api/WeiXin/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000518s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000655s ]
+ERR: 1046:Aucune base n'a été sélectionnée
+ [ SQL语句 ] : SHOW COLUMNS FROM `pbqj_user_info`
+ERR: 1046:Aucune base n'a été sélectionnée
+ [ SQL语句 ] : SHOW COLUMNS FROM `pbqj_user_info`
+
+[ 2016-10-31T17:06:49+08:00 ] ::1 /May_pbqj/Public/index.php/Api/WeiXin/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000517s ]
+ERR: 1046:Aucune base n'a été sélectionnée
+ [ SQL语句 ] : SHOW COLUMNS FROM `pbqj_user_info`
+ERR: 1046:Aucune base n'a été sélectionnée
+ [ SQL语句 ] : SHOW COLUMNS FROM `pbqj_user_info`
+
+[ 2016-10-31T17:06:58+08:00 ] ::1 /May_pbqj/Public/index.php/Api/WeiXin/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000436s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000703s ]
+ERR: 1046:Aucune base n'a été sélectionnée
+ [ SQL语句 ] : SHOW COLUMNS FROM `pbqj_user_info`
+ERR: 1046:Aucune base n'a été sélectionnée
+ [ SQL语句 ] : SHOW COLUMNS FROM `pbqj_user_info`
+
+[ 2016-10-31T17:39:15+08:00 ] ::1 /May_pbqj/Public/index.php/Api/WeiXin/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000514s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000607s ]
+SQL: SHOW COLUMNS FROM `pbqj_user_info` [ RunTime:0.0336s ]
+NOTIC: [8] Undefined index: WX_ACCESS_TOKEN E:\wamp2\www\May_pbqj\Application\Common\Util\Weixin.class.php 第 21 行.
+ERR: 1146:La table 'test2.access' n'existe pas
+ [ SQL语句 ] : select * from access where appid='wx88d660fefaf1b390' limit 1
+ERR: 1146:La table 'test2.access' n'existe pas
+ [ SQL语句 ] : select * from access where appid='wx88d660fefaf1b390' limit 1
+
+[ 2016-10-31T17:40:26+08:00 ] ::1 /May_pbqj/Public/index.php/Api/WeiXin/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000449s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000445s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000538s ]
+SQL: SHOW COLUMNS FROM `pbqj_user_info` [ RunTime:0.0034s ]
+NOTIC: [8] Undefined index: WX_ACCESS_TOKEN E:\wamp2\www\May_pbqj\Application\Common\Util\Weixin.class.php 第 21 行.
+ERR: 1146:La table 'test2.access' n'existe pas
+ [ SQL语句 ] : select * from access where appid='wx88d660fefaf1b390' limit 1
+ERR: 1146:La table 'test2.access' n'existe pas
+ [ SQL语句 ] : select * from access where appid='wx88d660fefaf1b390' limit 1
+
+[ 2016-10-31T17:43:05+08:00 ] ::1 /May_pbqj/Public/index.php/Api/WeiXin/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000508s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000601s ]
+SQL: SHOW COLUMNS FROM `pbqj_user_info` [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: WX_ACCESS_TOKEN E:\wamp2\www\May_pbqj\Application\Common\Util\Weixin.class.php 第 21 行.
+ERR: 1146:La table 'test2.access' n'existe pas
+ [ SQL语句 ] : select * from access where appid='wx88d660fefaf1b390' limit 1
+ERR: 1146:La table 'test2.access' n'existe pas
+ [ SQL语句 ] : select * from access where appid='wx88d660fefaf1b390' limit 1
+
+[ 2016-10-31T17:46:57+08:00 ] ::1 /May_pbqj/Public/index.php/Api/WeiXin/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000663s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000796s ]
+SQL: SHOW COLUMNS FROM `pbqj_user_info` [ RunTime:0.0032s ]
+NOTIC: [8] Undefined index: WX_ACCESS_TOKEN E:\wamp2\www\May_pbqj\Application\Common\Util\Weixin.class.php 第 21 行.
+SQL: select * from access where appid='wx88d660fefaf1b390' limit 1 [ RunTime:0.0528s ]
+NOTIC: [8] Undefined offset: 0 E:\wamp2\www\May_pbqj\Application\Common\Util\Weixin.class.php 第 26 行.
+NOTIC: [8] Undefined offset: 0 E:\wamp2\www\May_pbqj\Application\Common\Util\Weixin.class.php 第 26 行.
+NOTIC: [8] Undefined offset: 0 E:\wamp2\www\May_pbqj\Application\Common\Util\Weixin.class.php 第 39 行.
+SQL: insert into  access (access_token,ticket,create_time,expires_in,appid) values('-HyoPGZa3Ll0xv8-eSGuE_MZg-Sq_kaEQAv_iO2mBcszp2TrqBf5raxmnKKXzvBD7iw4FZmWuiI2apDT2r60PzO7ykZqkLe4asxwM0fg90wJEMdAFAZUC','kgt8ON7yVITDhtdwci0qeTaxBkHcex0NvRFH1zLWWinUKWdWc2GZ6RfbG3dgARP_l3xTBqnZ9zqKeqddZfh_iw','1477907217','7200','wx88d660fefaf1b390') [ RunTime:0.0225s ]
+NOTIC: [8] Undefined index: create_time E:\wamp2\www\May_pbqj\Application\Common\Util\Weixin.class.php 第 60 行.
+NOTIC: [8] Undefined index: ticket E:\wamp2\www\May_pbqj\Application\Common\Util\Weixin.class.php 第 62 行.
+NOTIC: [8] Undefined index: openid E:\wamp2\www\May_pbqj\Application\Api\Controller\WeiXinController.class.php 第 27 行.
+NOTIC: [8] Undefined index: openid E:\wamp2\www\May_pbqj\Application\Api\Controller\WeiXinController.class.php 第 31 行.
+NOTIC: [8] Undefined index: code E:\wamp2\www\May_pbqj\Application\Api\Controller\WeiXinController.class.php 第 33 行.
+
+[ 2016-10-31T17:47:51+08:00 ] ::1 /May_pbqj/Public/index.php/Api/WeiXin/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000449s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000543s ]
+SQL: SHOW COLUMNS FROM `pbqj_user_info` [ RunTime:0.0034s ]
+NOTIC: [8] Undefined index: WX_ACCESS_TOKEN E:\wamp2\www\May_pbqj\Application\Common\Util\Weixin.class.php 第 21 行.
+SQL: select * from access where appid='wx88d660fefaf1b390' limit 1 [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: openid E:\wamp2\www\May_pbqj\Application\Api\Controller\WeiXinController.class.php 第 27 行.
+NOTIC: [8] Undefined index: openid E:\wamp2\www\May_pbqj\Application\Api\Controller\WeiXinController.class.php 第 31 行.
+NOTIC: [8] Undefined index: code E:\wamp2\www\May_pbqj\Application\Api\Controller\WeiXinController.class.php 第 33 行.
+

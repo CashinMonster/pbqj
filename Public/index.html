@@ -1,0 +1,709 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>跑步钱进</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="true"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <meta name="format-detection" content="telephone=no" />
+    <style>
+    	*{
+    		border: 0;
+    		margin: 0;
+    		padding: 0;
+    	}
+        html, body {
+            -ms-touch-action: none;
+            background: #888888;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            width: 100%;
+        }
+        #pk_ing{
+        	width: 100%;
+        	height: 100%;
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	/*z-index: 99999;*/
+        	background:url("resource/assets/fortune/pking_bg.jpg") no-repeat;
+        	background-size: 100% 100%;
+        	display: none;
+        }
+        .back{
+        	width: 15%;
+        	position: absolute;
+        	top: 1.5%;
+        	left: 4%;
+        }
+        .pk_btn{
+        	width: 30%;
+        	position: absolute;
+        	top: 13%;
+        	left: 4%;
+        }
+        .pk_info{
+        	width: 90%;
+        	height: 77%;
+        	position: absolute;
+        	top: 22%;
+        	left: 5%;
+        	/*border: 1px solid red;*/
+        	overflow-y: scroll;
+        }
+        .pk_info li{
+        	width: 90%;
+        	height: 25%;
+        	background: url("resource/assets/fortune/lishi_kuang.png") no-repeat;
+        	background-size: 100% 100%;
+        	list-style: none;
+        	margin-left: 5%;
+        	margin-top: 2%;
+        	position: relative;
+        }
+        .pk_info li p{
+        	color: white;
+        	font-size: 14px;
+        	font-weight: bold;
+        	margin-left: 6%;
+        	/*line-height: 30px;*/
+        	padding-top: 10px;
+        }
+        .pk_info li div{
+        	position: absolute;
+        	right: 5%;
+        	top: 50%;
+        	margin-top: -25px;
+        	width: 50px;
+        	height: 50px;
+        	border: 1px solid white;
+        	box-sizing: border-box;
+        	border-radius: 25px;
+        	overflow: hidden;
+        }
+        .pk_info li div img{
+        	width: 50px;
+        	height: 50px;
+        }
+        
+        #pk_result{
+        	width: 100%;
+        	height: 100%;
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	/*z-index: 99999;*/
+        	background:url("resource/assets/fortune/pkresult_bg.jpg") no-repeat;
+        	background-size: 100% 100%;
+        	display: none;
+        }
+        .result_info{
+        	width: 90%;
+        	height: 77%;
+        	position: absolute;
+        	top: 22%;
+        	left: 5%;
+        	/*border: 1px solid red;*/
+        	overflow-y: scroll;
+        }
+        .result_info li{
+        	width: 90%;
+        	height: 25%;
+        	background: url("resource/assets/fortune/lishi_kuang.png") no-repeat;
+        	background-size: 100% 100%;
+        	list-style: none;
+        	margin-left: 5%;
+        	margin-top: 2%;
+        	position: relative;
+        }
+        .result_info li p{
+        	color: white;
+        	font-size: 14px;
+        	font-weight: bold;
+        	margin-left: 6%;
+        	/*line-height: 30px;*/
+        	padding-top: 10px;
+        }
+        .result_info li div{
+        	position: absolute;
+        	right: 5%;
+        	top: 50%;
+        	margin-top: -25px;
+        	width: 50px;
+        	height: 50px;
+        	border: 1px solid white;
+        	box-sizing: border-box;
+        	border-radius: 25px;
+        	overflow: hidden;
+        }
+        .result_info li div img{
+        	width: 50px;
+        	height: 50px;
+        }
+        
+        
+        @media only screen and (min-width: 375px) and (max-width: 640px) {
+        	.pk_info li p{
+        		font-size: 16px;
+        		padding-top: 12px;
+        	}
+        	.result_info li p{
+        		font-size: 16px;
+        		padding-top: 12px;
+        	}
+        }
+        
+        
+        #anima{
+        	width: 100%;
+        	height: 100%;
+        	background: url("resource/assets/pk/pkbg.jpg") no-repeat;
+        	background-size: 100% 100%;
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	z-index: 999999;
+        	display: none;
+        }
+        .pk_vs{
+        	width: 30%;
+        	position: absolute;
+        	top: 40%;
+        	left: 35%;
+        	-webkit-animation: move1 0.5s infinite;
+        	-o-animation: move1 0.5s infinite;
+        	animation: move1 0.5s infinite;
+        }
+        @keyframes move1{
+        	0%{
+        		-webkit-transform: scale3d(1,1,1);
+        		-moz-transform: scale3d(1,1,1);
+        		-ms-transform: scale3d(1,1,1);
+        		-o-transform: scale3d(1,1,1);
+        		transform: scale3d(1,1,1);
+        	}
+        	50%{
+        		-webkit-transform: scale3d(0.6,0.6,0.6);
+        		-moz-transform: scale3d(0.6,0.6,0.6);
+        		-ms-transform: scale3d(0.6,0.6,0.6);
+        		-o-transform: scale3d(0.6,0.6,0.6);
+        		transform: scale3d(0.6,0.6,0.6);
+        	}
+        	100%{
+        		-webkit-transform: scale3d(1,1,1);
+        		-moz-transform: scale3d(1,1,1);
+        		-ms-transform: scale3d(1,1,1);
+        		-o-transform: scale3d(1,1,1);
+        		transform: scale3d(1,1,1);
+        	}
+        }
+        @-webkit-keyframes move1{
+        	0%{
+        		
+        		-webkit-transform: scale3d(1,1,1);
+        		-moz-transform: scale3d(1,1,1);
+        		-ms-transform: scale3d(1,1,1);
+        		-o-transform: scale3d(1,1,1);
+        		transform: scale3d(1,1,1);
+        	}
+        	50%{
+        		-webkit-transform: scale3d(0.6,0.6,0.6);
+        		-moz-transform: scale3d(0.6,0.6,0.6);
+        		-ms-transform: scale3d(0.6,0.6,0.6);
+        		-o-transform: scale3d(0.6,0.6,0.6);
+        		transform: scale3d(0.6,0.6,0.6);
+        	}
+        	100%{
+        		-webkit-transform: scale3d(1,1,1);
+        		-moz-transform: scale3d(1,1,1);
+        		-ms-transform: scale3d(1,1,1);
+        		-o-transform: scale3d(1,1,1);
+        		transform: scale3d(1,1,1);
+        	}
+        }
+        .player1_body{
+        	width: 60%;
+        	position: absolute;
+        	top: -3%;
+        	right: -5%;
+        }
+        .player1_tou{
+        	width: 35%;
+        	position: absolute;
+        	right: 5%;
+        	top: 9%;
+        	-webkit-animation: player 1.5s infinite;
+        	-o-animation: player 1.5s infinite;
+        	animation: player 1.5s infinite;
+        	z-index: 1000000000;
+        }
+        @keyframes player{
+        	  /*0% {
+			    -webkit-transform: scale3d(1, 1, 1);
+			    transform: scale3d(1, 1, 1);
+			  }*/
+			
+			  /*10%, 20% {
+			    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -5deg);
+			    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -5deg);
+			  }*/
+			
+			  10%,30%, 50%, 70%, 90% {
+			    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 5deg);
+			    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 5deg);
+			  }
+			
+			  0%,20%,40%, 60%, 80% ,100% {
+			    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -5deg);
+			    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -5deg);
+			  }
+			
+			  /*100% {
+			    -webkit-transform: scale3d(1, 1, 1);
+			    transform: scale3d(1, 1, 1);
+			  }*/
+        }
+        @-webkit-keyframes player{
+        	  /*10%, 20% {
+			    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -5deg);
+			    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -5deg);
+			  }*/
+			
+			  10%,30%, 50%, 70%, 90% {
+			    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 5deg);
+			    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 5deg);
+			  }
+			
+			  0%,20%,40%, 60%, 80% ,100% {
+			    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -5deg);
+			    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -5deg);
+			  }
+			
+			  /*100% {
+			    -webkit-transform: scale3d(1, 1, 1);
+			    transform: scale3d(1, 1, 1);
+			  }*/
+        }
+        .player2_body{
+        	width: 60%;
+        	position: absolute;
+        	bottom: 0%;
+        	left: -6%;
+        }
+        .player2_tou{
+        	width: 35%;
+        	position: absolute;
+        	left: 5%;
+        	bottom: 8%;
+        	-webkit-animation: player 1.5s infinite;
+        	-o-animation: player 1.5s infinite;
+        	animation: player 1.5s infinite;
+        	z-index: 1000000000;
+        }
+        .txt1{
+        	width: 50%;
+        	position: absolute;
+        	top: 5%;
+        	left: 3%;
+        	-webkit-animation: shake 1.2s infinite;
+        	-o-animation: shake 1.2s infinite;
+        	animation: shake 1.2s infinite;
+        }
+        .txt2{
+        	width: 50%;
+        	position: absolute;
+        	bottom: 25%;
+        	right: 5%;
+        	-webkit-animation: shake 1.2s infinite;
+        	-o-animation: shake 1.2s infinite;
+        	animation: shake 1.2s infinite;
+        }
+        @-webkit-keyframes shake{
+        	/*10%, 20% {
+			    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg);
+			    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg);
+			  }*/
+			
+			  10%,30%, 50%, 70%, 90% {
+			    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 3deg);
+			    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 3deg);
+			  }
+			
+			  0%,20%,40%, 60%, 80% ,100% {
+			    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -3deg);
+			    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -3deg);
+			  }
+        }
+        span{
+        	display: block;
+        	width: 23%;
+        	height: 5%;
+        	/*border: 1px solid red;*/
+        	text-align: center;
+        	line-height: 30px;
+        }
+        .name1{
+        	width: 40%;
+        	color: white;
+        	font-size: 14px;
+        	position: absolute;
+        	top: 26%;
+        	left: 2%;
+        	
+        }
+        .name2{
+        	width: 40%;
+        	color: white;
+        	font-size: 14px;
+        	position: absolute;
+        	bottom: 17%;
+        	right: 6%;
+        }
+        .money1{
+        	position: absolute;
+        	top: 33%;
+        	left: 11%;
+        }
+        .money2{
+        	position: absolute;
+        	bottom: 9.5%;
+        	right: 17%;
+        	width: 26%;
+        }
+        .paobu_btn{
+        	position: absolute;
+        	bottom: 0%;
+        	width: 30%;
+        	left: 40%;
+        }
+        .player1{
+        	width: 46%;
+        	position: absolute;
+        	top: 8%;
+        	right: 1%;
+        }
+        .player2{
+        	width: 46%;
+        	position: absolute;
+        	bottom: 6%;
+        	left: 1%;
+        }
+        #pk_start{
+        	width: 100%;
+        	height: 100%;
+        	background-color: rgba(0,0,0,0.6);
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	display: none;
+        	/*z-index: 1000000;*/
+        }
+        .yaoqing{
+        	height: 70%;
+        	position: absolute;
+        	top: 10%;
+        	left: 10%;
+        }
+        .money_input{
+        	width: 65%;
+        	height:7.2%;
+        	position: absolute;
+        	font-size: 20px;
+        	left: 19%;
+        	top: 25%;
+        }
+        .share_start{
+        	width: 55%;
+        	height: 7%;
+        	position: absolute;
+        	top: 36%;
+        	left: 24%;
+        	/*border: 1px solid red;*/
+        }
+        .share_img{
+        	width: 100%;
+        	height: 100%;
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	z-index: 100000000000000000;
+        	display: none;
+        }
+        #pk_start_kuang{
+        	display: none;
+        	/*z-index: 999999999999999;*/
+        }
+    </style>
+    
+
+    <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件。删除 modules_files 标签后，库文件加载列表将不会变化，请谨慎操作！-->
+    <!--modules_files_start-->
+	<script egret="lib" src="libs/modules/egret/egret.min.js"></script>
+	<script egret="lib" src="libs/modules/egret/egret.web.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.web.min.js"></script>
+	<script egret="lib" src="libs/modules/tween/tween.min.js"></script>
+	<script egret="lib" src="libs/modules/res/res.min.js"></script>
+	<!--modules_files_end-->
+
+    <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
+    <!--other_libs_files_start-->
+    <!--other_libs_files_end-->
+
+    <!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
+    <!--game_files_start-->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="./main.min.js?test=6"></script>
+	<!--game_files_end-->
+</head>
+<body>
+
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="Main"
+         data-orientation="auto"
+         data-scale-mode="showAll"
+         data-frame-rate="60"
+         data-content-width="640"
+         data-content-height="1036"
+         data-show-paint-rect="false"
+         data-multi-fingered="2"
+         data-show-fps="false" data-show-log="false"
+         data-log-filter="" data-show-fps-style="x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9">
+    </div>
+    <div id="gameID"> </div>
+    <div id="pk_ing">
+    	<img src="resource/assets/rank/rank_fh.png" class="back"/>
+    	<img src="resource/assets/fortune/again.png" class="pk_btn"/>
+    	<ul class="pk_info">
+    		
+    	</ul>
+    </div>
+   
+    <div id="anima">
+		<img src="resource/assets/pk/vs.png" alt="" class="pk_vs"/>
+		<!--<img src="resource/assets/pk/fav3_tou.png" alt="" class="player1_tou"/>
+		<img src="resource/assets/pk/fav3_body.png" alt="" class="player1_body"/>
+		<img src="resource/assets/pk/jinv3_tou.png" alt="" class="player2_tou"/>
+		<img src="resource/assets/pk/jinv3_body.png" alt="" class="player2_body"/>-->
+		<img src="resource/assets/npcSelect/npc_fa_photo3.png" alt="" class="player1"/>
+		<img src="resource/assets/npcSelect/npc_jin_photo3.png" alt="" class="player2"/>
+		<img src="resource/assets/pk/txt1.png" alt="" class="txt1"/>
+		<img src="resource/assets/pk/txt2.png" alt="" class="txt2"/>
+		<span class="name1">hello</span>
+		<span class="name2">world</span>
+		<span class="money1">111</span>
+		<span class="money2">11111</span>
+		<img src="resource/assets/pk/paobu_btn.png" alt="" class="paobu_btn"/>
+	</div>
+	<div id="pk_result">
+		<img src="resource/assets/rank/rank_fh.png" class ="back"/>
+    	<img src="resource/assets/fortune/again.png" class="pk_btn"/>
+    	<ul class="result_info">
+    		
+    	</ul>
+	</div>
+	<div id="pk_start">
+		
+	</div>
+	<div id="pk_start_kuang">
+		<img src="resource/assets/home/home_yuceyaoqing.png" alt="" class="yaoqing"/>
+		<input type="tel"  class="money_input" maxlength="8"/>
+		<p class="share_start"></p>
+		<img src="resource/assets/home/sharemc.png" class="share_img"/>
+	</div>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://uat.zwmedia.com.cn/pbqj/common/share.php?type=js"></script>
+    <script type="text/javascript">
+	    function getDetail(id){
+	    	
+	    	$.ajax({
+	    		
+	    		url:'/pbqj/Public/index.php/Api/Game/getPkdetailByid/id/'+id,
+	    		success:function(data){
+	    			
+	    			var arr = data.data;
+	    			
+	    			$(".name1").html(arr.self.nickname);
+	    			$(".name2").html(arr.other.nickname);
+	    			$(".money1").html(arr.self.money);
+	    			$(".money2").html(arr.other.money);
+	    			$(".player1").attr('src','resource/assets/pkNpc/'+arr.self.role+'.png');
+					$(".player2").attr('src','resource/assets/pkNpc/'+arr.other.role+'.png');
+	    			$("#pk_ing").hide();
+					$("#anima").show();
+	    		}
+	    	});
+	    }
+    	
+    	$("#anima").click(function (){
+    		$("#pk_ing").show();
+			$("#anima").hide();
+    	});
+    	$(".back").click(function (){
+    		$("#pk_ing").hide();
+    		$("#pk_result").hide();
+    	});
+    	$(".pk_btn").click(function (){
+    		$("#pk_start").show();
+    		$("#pk_start_kuang").show();
+    	});
+    	$(".share_start").click(function (){
+
+    		if ($(".money_input").val() == ""){
+    			alert("请输入预测指数");
+    		}else{
+                
+    			$(".share_img").show();
+                var other_forecase =  $(".money_input").val()
+                wx.ready(function () {
+                    wx.onMenuShareAppMessage({
+                    title: '跑步钱进',
+                    desc: '股神'+wx_config['nickname']+'向你发起挑战，不服来PK',
+                    link: 'http://uat.zwmedia.com.cn/pbqj/Public/index.php/Api/WeiXin?qzopenid='+wx_config['openid']+'&other_forecast='+other_forecase,
+                    imgUrl: 'http://uat.zwmedia.com.cn/pbqj/icon.jpg',
+                    trigger: function (res) {
+                    var context = egret.MainContext.instance;
+                    context.stage.dispatchEventWith("yifenxiang2", false); 
+                    },
+                    success: function (res) {
+                    },
+                    cancel: function (res) {
+                    },
+                    fail: function (res) {
+                    }
+                    });
+                    
+                    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+                    wx.onMenuShareTimeline({
+                    title: '跑步钱进',
+                    desc: '快来和我一起跑步钱进吧！',
+                    link: 'http://uat.zwmedia.com.cn/pbqj/Public/index.php/Api/WeiXin?qzopenid='+wx_config['openid']+'&other_forecast='+other_forecase,
+                    imgUrl: 'http://uat.zwmedia.com.cn/pbqj/icon.jpg',
+                    trigger: function (res) {
+                    var context = egret.MainContext.instance;
+                    context.stage.dispatchEventWith("yifenxiang2", false); 
+                    },
+                    success: function (res) {
+                    },
+                    cancel: function (res) {
+                    },
+                    fail: function (res) {
+                    }
+                    });
+                    });
+    		}
+    		
+    	});
+    	$(".share_img").click(function(){
+    		$(".share_img").hide();
+    	});
+    	$("#pk_start").click(function (){
+    		$("#pk_start").hide();
+    		$("#pk_start_kuang").hide();
+    	});
+    </script>
+    <script>
+        egret.runEgret();
+    </script>
+    <SCRIPT> 
+    	//window.alert = function(str)
+    	//{
+    	//return ;
+    	//}
+    </SCRIPT>
+   
+    
+    <script>
+    	wx.config({
+    	debug: false,
+    	appId: wx_config['appId'],
+    	timestamp: wx_config['timestamp'],
+    	nonceStr: wx_config['nonceStr'],
+    	signature: wx_config['signature'],
+    	jsApiList: [
+    	'checkJsApi',
+    	'onMenuShareTimeline',
+    	'onMenuShareAppMessage',
+    	'onMenuShareQQ',
+    	'onMenuShareWeibo',
+    	'onMenuShareQZone',
+    	'hideMenuItems',
+    	'showMenuItems',
+    	'hideAllNonBaseMenuItem',
+    	'showAllNonBaseMenuItem',
+    	'translateVoice',
+    	'startRecord',
+    	'stopRecord',
+    	'onVoiceRecordEnd',
+    	'playVoice',
+    	'onVoicePlayEnd',
+    	'pauseVoice',
+    	'stopVoice',
+    	'uploadVoice',
+    	'downloadVoice',
+    	'chooseImage',
+    	'previewImage',
+    	'uploadImage',
+    	'downloadImage',
+    	'getNetworkType',
+    	'openLocation',
+    	'getLocation',
+    	'hideOptionMenu',
+    	'showOptionMenu',
+    	'closeWindow',
+    	'scanQRCode',
+    	'chooseWXPay',
+    	'openProductSpecificView',
+    	'addCard',
+    	'chooseCard',
+    	'openCard'
+    	]
+    	});
+    	
+    	wx.ready(function () {
+    	wx.onMenuShareAppMessage({
+    	title: '跑步钱进',
+    	desc: '快来和我一起跑步钱进吧！',
+    	link: 'http://uat.zwmedia.com.cn/pbqj/Public/index.php/Api/WeiXin',
+    	imgUrl: 'http://uat.zwmedia.com.cn/pbqj/icon.jpg',
+    	trigger: function (res) {
+    	var context = egret.MainContext.instance;
+    	context.stage.dispatchEventWith("yifenxiang2", false); 
+    	},
+    	success: function (res) {
+    	},
+    	cancel: function (res) {
+    	},
+    	fail: function (res) {
+    	}
+    	});
+    	
+    	// 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+    	wx.onMenuShareTimeline({
+    	title: '跑步钱进',
+    	desc: '快来和我一起跑步钱进吧！',
+    	link: 'http://uat.zwmedia.com.cn/pbqj/Public/index.php/Api/WeiXin',
+    	imgUrl: 'http://uat.zwmedia.com.cn/pbqj/icon.jpg',
+    	trigger: function (res) {
+    	var context = egret.MainContext.instance;
+    	context.stage.dispatchEventWith("yifenxiang2", false); 
+    	},
+    	success: function (res) {
+    	},
+    	cancel: function (res) {
+    	},
+    	fail: function (res) {
+    	}
+    	});
+    	});
+    </script>
+   
+</body>
+</html>

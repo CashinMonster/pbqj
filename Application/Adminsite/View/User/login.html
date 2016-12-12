@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>湖南微讯国际营销咨询有限公司 {:L('ADMIN_CENTER')}</title>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta name="robots" content="noindex,nofollow">
+		<link href="/Css/admin_login.css" rel="stylesheet" />
+		<style>
+			#login_btn_wraper{
+				text-align: center;
+			}
+			#login_btn_wraper .tips_success{
+				color:#fff;
+			}
+			#login_btn_wraper .tips_error{
+				color:#DFC05D;
+			}
+			#login_btn_wraper button:focus{outline:none;}
+
+		</style>
+		<script>
+			if (window.parent !== window.self) {
+					document.write = '';
+					window.parent.location.href = window.self.location.href;
+					setTimeout(function () {
+							document.body.innerHTML = '';
+					}, 0);
+			}
+		</script>
+		
+	</head>
+<body>
+	<div class="wrap">
+		<h1><a href="__ROOT__">企业网络服务管理平台</a></h1>
+		<form method="post" name="login" action="{:U('login')}" autoComplete="off" class="J_ajaxForm">
+			<div class="login">
+				<ul>
+					<li class="li1">请输入帐号：</li>
+					<li>
+						
+						<input class="input" id="js-admin-name" required name="username" type="text" placeholder="{:L('USERNAME_OR_EMAIL')}" title="{:L('USERNAME_OR_EMAIL')}" value="{$_COOKIE['admin_username']}"/>
+					</li>
+					<li class="li1">请输入密码：</li>
+					<li>
+						
+						<input class="input" id="admin_pwd" type="password" required name="password" placeholder="{:L('PASSWORD')}" title="{:L('PASSWORD')}" />
+					</li>
+
+				</ul>
+				<div id="login_btn_wraper">
+					<button type="submit" name="submit" class="btn js-ajax-submit" data-loadingmsg="{:L('LOADING')}">{:L('LOGIN')}</button>
+					
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+<script>
+var GV = {
+	DIMAUB: "",
+	JS_ROOT: "__PUBLIC__/js/",//js版本号
+	TOKEN : ''	//token ajax全局
+};
+</script>
+<script src="/Js/wind.js"></script>
+<script src="/Js/jquery.js"></script>
+<script type="text/javascript" src="/Js/common.js"></script>
+<script>
+;(function(){
+	document.getElementById('js-admin-name').focus();
+})();
+</script>
+</body>
+</html>

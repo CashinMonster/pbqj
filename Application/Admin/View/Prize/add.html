@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/style.css" />
+    <script type="text/javascript" src="__ROOT__/Js/jquery.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/bootstrap.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/ckform.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/common.js"></script>
+</head>
+<form action="index.html" method="post">
+<table class="table table-bordered table-hover definewidth m10">
+    <tr>
+        <td width="10%" class="tableleft">奖品名称</td>
+        <td>
+            <select class="selectpicker" data-width="auto" id='goods_id'>
+                <foreach name="goods_list" item="vo">
+                    <option value="{$vo.id}">{$vo.title}</option>
+                </foreach>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">奖品数量</td>
+        <td><input type="text" id="num"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft"></td>
+        <td>
+            <button type="button" class="btn btn-primary save" type="button">保存</button>&nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
+<script>
+    $(function () {
+        $(".upload").change(function(){
+            var data = new FormData();
+            //为FormData对象添加数据
+            $.each($('#inputfile')[0].files, function(i, file) {
+                data.append('upload_file', file);
+            });
+            $.ajax({
+                url:"{:U('uploadImage')}",
+                type:'POST',
+                data:data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    var html    = "<img id='image' src="+data.data+" style='height: 101px;width: 100px'/>";
+                    $('.image').html(html);
+                    }
+            });
+        });
+
+
+
+		$('.save').click(function(){
+            var goods_id    = $('#goods_id').val();
+            var num         = $('#num').val();
+            $.ajax({
+                url: "{:U('add')}",
+                type:'post',
+                datatype:'json',
+                data:{'goods_id':goods_id,'num':num,},
+                success: function(result){
+                    if(result.status){
+                        alert('新增成功');
+                        window.location.href = "{:U('index')}";
+                    }
+                }});
+		    });
+
+
+		$('#backid').click(function(){
+				window.location.href="__ROOT__/index.html";
+		 });
+
+    });
+</script>

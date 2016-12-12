@@ -1,0 +1,20 @@
+[ 2016-10-31T17:47:20+08:00 ] ::1 /May_pbqj/Public/index.php/Adminsite/Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000446s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000547s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.022846s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.022970s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.048545s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048639s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.010136s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010239s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000837s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000931s ]
+

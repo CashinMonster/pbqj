@@ -1,0 +1,6 @@
+{"file":"npcFont.png","frames":{
+"1":{"x":16,"y":20,"w":7,"h":18,"offX":3,"offY":0,"sourceW":14,"sourceH":18},
+"2":{"x":0,"y":20,"w":14,"h":18,"offX":2,"offY":0,"sourceW":20,"sourceH":18},
+"3":{"x":0,"y":0,"w":15,"h":18,"offX":2,"offY":0,"sourceW":17,"sourceH":18},
+"l":{"x":17,"y":0,"w":12,"h":18,"offX":0,"offY":0,"sourceW":15,"sourceH":18},
+"v":{"x":0,"y":40,"w":16,"h":13,"offX":2,"offY":5,"sourceW":21,"sourceH":18}}}

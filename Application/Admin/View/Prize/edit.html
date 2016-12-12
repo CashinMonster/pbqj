@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/style.css" />
+    <script type="text/javascript" src="__ROOT__/Js/jquery.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/bootstrap.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/ckform.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/common.js"></script>
+</head>
+<form action="index.html" method="post">
+    <table class="table table-bordered table-hover definewidth m10">
+        <tr>
+            <td width="10%" class="tableleft">奖品名称</td>
+            <td>
+                <select class="selectpicker" data-width="auto" id='goods_id'>
+                    <foreach name="goods_list" item="vo">
+                        <option value="{$vo.id}" <?php if($vo['id'] == $prize['goods_id']) echo 'selected';?>>{$vo.title}</option>
+                    </foreach>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="tableleft">奖品数量</td>
+            <td><input type="text" id="num" value="{$prize.num}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft"></td>
+            <td>
+                <input type="hidden" id="prize" value="{$prize.id}">
+                <button type="button" class="btn btn-primary save" type="button">保存</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+<script>
+    $(function () {
+
+
+        //编辑信息
+        $('.save').click(function(){
+            var prizeId     = $('#prize').val();
+            var goods_id    = $('#goods_id').val();
+            var num         = $('#num').val();
+            $.ajax({
+                url: "{:U('edit')}",
+                type:'post',
+                datatype:'json',
+                data:{'id':prizeId,'num':num,'goods_id':goods_id,},
+                success: function(result){
+                    if(result.status){
+                        alert('修改成功');
+                        window.location.href = "{:U('index')}";
+                    }
+                }});
+        });
+        $('#backid').click(function(){
+            window.location.href="index.html";
+        });
+
+    });
+</script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/style.css" />
+    <script type="text/javascript" src="/Js/jquery.js"></script>
+    <script type="text/javascript" src="/Js/bootstrap.js"></script>
+    <script type="text/javascript" src="/Js/ckform.js"></script>
+    <script type="text/javascript" src="/Js/common.js"></script>
+</head>
+<body>
+<form class="form-inline definewidth m20" action="index.html" method="get">    
+    <button type="button" class="btn btn-success" id="addnew">新增商品</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>商品标题</th>
+        <th>价格</th>
+        <th>商品库存</th>
+        <th>商品销量</th>
+        <th>商品图片</th>
+        <th>使用规则</th>
+        <th>有效期</th>
+        <th>券码</th>
+        <th>商品链接</th>
+        <th>短信内容</th>
+        <th>显示顺序</th>
+        <th>商品状态</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+        <foreach name="ware_list" item="vo" >
+            <tr>
+                <td>{$vo.title}</td>
+                <td>{$vo.price}</td>
+                <td>{$vo.number}</td>
+                <td>{$vo.sell_num|default=0}</td>
+                <td><img src="{$vo.image}" style='height: 50px;width: 50px'></td>
+                <td>{$vo.rule}</td>
+                <td>{$vo.expiry_date}</td>
+                <td>{$vo.ticket}</td>
+                <td>{$vo.link_url}</td>
+                <td>{$vo.sms_content}</td>
+                <td>{$vo.show_order}</td>
+                <td>
+                    <if condition = "$vo.status eq 'online'">
+                        <font color="green">上架中</font>
+                    <else/>
+                        <font color="red">已下架</font>
+                    </if>
+                </td>
+                <td>
+                    <a href="edit.html?ware_id={$vo.id}">编辑</a>
+                </td>
+            </tr>
+        </foreach>
+</table>
+</body>
+</html>
+<script>
+    $(function () {
+		$('#addnew').click(function(){
+				window.location.href="add.html";
+		 });
+
+
+    });
+
+	function del(id)
+	{
+		if(confirm("确定要删除吗？"))
+		{
+		
+			var url = "index.html";
+			
+			window.location.href=url;		
+		
+		}
+	
+	
+	
+	
+	}
+</script>

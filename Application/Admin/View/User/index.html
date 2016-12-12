@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>后台管理系统</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Css/style.css" />
+    <script type="text/javascript" src="__ROOT__/Js/jquery.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/bootstrap.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/ckform.js"></script>
+    <script type="text/javascript" src="__ROOT__/Js/common.js"></script>
+</head>
+<body>
+<form class="form-inline definewidth m20" action="index.html" method="post">
+    用户昵称：
+    <input type="text" name="username" id="username"class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-success" id="addnew">导出</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>微信ID</th>
+        <th>昵称</th>
+        <th>手机号</th>
+        <th>资金</th>
+        <th>游戏局数</th>
+        <th>游戏胜率</th>
+        <th>PK局数</th>
+        <th>PK胜率</th>
+    </tr>
+    </thead>
+        <foreach name="user_info" item="vo" >
+            <tr>
+                <td>{$vo.openid}</td>
+                <td>{$vo.nickname}</td>
+                <td>{$vo.telphone|default='暂无'}</td>
+                <td>{$vo.balance}</td>
+                <td>{$vo.bet_win_time}</td>
+                <td>{$vo.bet_win_rate}</td>
+                <td>{$vo.pk_win_rate}</td>
+                <td>{$vo.pk_total_rate}</td>
+            </tr>
+        </foreach>
+</table>
+{$page}
+</body>
+</html>
+<script>
+    $(function () {
+		$('#addnew').click(function(){
+				window.location.href="{:U('/Admin/User/expUserList')}";
+		 });
+
+
+    });
+
+	function del(id)
+	{
+		if(confirm("确定要删除吗？"))
+		{
+		
+			var url = "index.html";
+			
+			window.location.href=url;		
+		
+		}
+	
+	
+	
+	
+	}
+</script>

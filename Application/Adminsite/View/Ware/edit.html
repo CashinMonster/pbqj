@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/style.css" />
+    <script type="text/javascript" src="/Js/jquery.js"></script>
+    <script type="text/javascript" src="/Js/bootstrap.js"></script>
+    <script type="text/javascript" src="/Js/ckform.js"></script>
+    <script type="text/javascript" src="/Js/common.js"></script>
+</head>
+<form action="index.html" method="post">
+    <table class="table table-bordered table-hover definewidth m10">
+        <tr>
+            <td width="10%" class="tableleft">商品标题</td>
+            <td><input type="text" id="title" value="{$ware.title}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft">价格</td>
+            <td><input type="text" id="price" value="{$ware.price}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft">商品数量</td>
+            <td><input type="text" id="number" value="{$ware.number}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft">商品图片</td>
+            <td class="image">
+                <img src="{$ware.image}" style='height: 101px;width: 100px'>
+                <div class="file-upload btn btn-info">
+                    <span>上传图片</span>
+                    <input class="upload" type="file" id='inputfile'>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tableleft">使用规则</td>
+            <td><input type="text" id="rule" value="{$ware.rule}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft">有效期</td>
+            <td><input type="text" id="expiry_date" value="{$ware.expiry_date}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft">券码</td>
+            <td><input type="text" id="ticket" value="{$ware.ticket}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft">商品链接</td>
+            <td><input type="text" id="link_url" value="{$ware.link_url}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft">短信内容</td>
+            <td><input type="text" id="sms_content" value="{$ware.sms_content}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft">商品状态</td>
+            <td>
+                <select class="selectpicker" data-width="auto" id='status'>
+                    <if condition ="$ware.status eq 'online'">
+                        <option value="online" selected = "selected">上架中</option>
+                        <option value="offline">下架中</option>
+                        <else/>
+                        <option value="online">上架中</option>
+                        <option value="offline" selected = "selected">已下架</option>
+                    </if>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="tableleft">显示顺序</td>
+            <td><input type="text" id="show_order" value="{$ware.show_order}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft"></td>
+            <td>
+                <input type="hidden" id="ware_id" value="{$ware.id}">
+                <button type="button" class="btn btn-primary save" type="button">保存</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+<script>
+    $(function () {
+        $(".upload").change(function(){
+            var data = new FormData();
+            //为FormData对象添加数据
+            $.each($('#inputfile')[0].files, function(i, file) {
+                data.append('upload_file', file);
+            });
+            $.ajax({
+                url:"{:U('uploadImage')}",
+                type:'POST',
+                data:data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    var html    = "<img id='image' src="+data.data+" style='height: 101px;width: 100px'/>";
+                    $('.image').html(html);
+                }
+            });
+        });
+
+        //编辑信息
+        $('.save').click(function(){
+            var title       = $('#title').val();
+            var ware_id     = $('#ware_id').val();
+            var price       = $('#price').val();
+            var number      = $('#number').val();
+            var image       = $('#image').attr('src');
+            var rule        = $('#rule').val();
+            var expiry_date = $('#expiry_date').val();
+            var ticket      = $('#ticket').val();
+            var link_url    = $('#link_url').val();
+            var sms_content = $('#sms_content').val();
+            var show_order  = $('#show_order').val();
+            var status      = $('#status').val();
+            $.ajax({
+                url: "{:U('edit')}",
+                type:'post',
+                datatype:'json',
+                data:{'id':ware_id,'title':title,'price':price,'number':number,'image':image,'rule':rule,'expiry_date':expiry_date,
+                    'ticket':ticket,'link_url':link_url,'sms_content':sms_content,'show_order':show_order,'status':status},
+                success: function(result){
+                    if(result.status){
+                        alert('修改成功');
+                        window.location.href = "{:U('index')}";
+                    }
+                }});
+        });
+        $('#backid').click(function(){
+            window.location.href="index.html";
+        });
+
+    });
+</script>
